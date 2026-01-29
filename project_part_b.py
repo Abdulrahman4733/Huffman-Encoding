@@ -124,16 +124,24 @@ def print_table(counts: Dict[str, int], codes: Dict[str, str]) -> None:
 
 
 def main() -> None:
-    base_text = "AERIOUS"
+    # Group members' names and IDs
     print("=== TIT3131 Part B: Huffman Encoding Program ===")
-    name = input("Enter ONE group member's name (used to find first 2 vowels): ").strip()
+    print("Group Members: Abdulrahman Abdullah Bawadi (ID: 1201301970), Omar Albassam (ID: 1191202421)")
+    print("")
 
+    base_text = "AERIOUS"
+    print(f"Base text: {base_text}")
+    
+    # Continue the rest of your program...
+    name = input("Enter ONE group member's name (used to find first 2 vowels): ").strip()
+    
+    # Existing code continues here...
     two_vowels = first_two_vowels(name)
     final_text = base_text + two_vowels  # "append behind the text"
     print(f"\nBase text: {base_text}")
     print(f"First two vowels from name: {two_vowels}")
     print(f"Final text used for Huffman: {final_text}")
-
+    
     counts = dict(Counter(final_text))
     root = build_huffman_tree(counts)
     codes = build_codes(root)
@@ -157,11 +165,8 @@ def main() -> None:
     print(f"Encoded output               = {encoded}")
     print("-" * 60)
 
-    
     encoded_base = encode_text(base_text, codes)
     print("\n(Verification) Encoding 'AERIOUS' using SAME table:")
     print(f"Encoded 'AERIOUS' = {encoded_base}  ({len(encoded_base)} bits)")
 
-
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__": main()
